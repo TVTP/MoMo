@@ -1,0 +1,52 @@
+﻿
+@using ChickenGang_Project.Models;
+@model IEnumerable<SanPham>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/ProductLayout.cshtml"; }
+@{ IEnumerable<SanPham> lst1nguoi = (IEnumerable<SanPham>)ViewBag.lst1nguoi;
+    IEnumerable<SanPham> lstnhom = (IEnumerable<SanPham>)ViewBag.lstnhom;
+    IEnumerable<SanPham> lstGa_quay = (IEnumerable<SanPham>)ViewBag.lstGa_quay;
+    IEnumerable<SanPham> lstCom = (IEnumerable<SanPham>)ViewBag.lstCom;
+    IEnumerable<SanPham> lstNhe = (IEnumerable<SanPham>)ViewBag.lstNhe;
+
+}
+
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lst1nguoi)
+
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstnhom)
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstGa_quay)
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstCom)
+    </div>
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstNhe)
+    </div>
+</div>
+

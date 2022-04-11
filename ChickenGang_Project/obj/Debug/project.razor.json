@@ -1,0 +1,19 @@
+{
+  "FilePath": "c:\\Users\\NGUYEN NIEN\\Desktop\\CNTT\\ChickenGang_project_08-04-master\\ChickenGang_Project\\ChickenGang_Project.csproj",
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

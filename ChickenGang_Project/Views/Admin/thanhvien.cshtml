@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ChickenGang_Project.Models.ThanhVien>
+
+@{
+    ViewBag.Title = "thanhvien";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <br />
+    <div class="col-md-12">
+    </div>
+</div>
+
+
+
+<br />
+
+<div class="mt-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <span><i class="bi bi-table me-2"></i></span> Data Table
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example"
+                                   class="table table-striped data-table"
+                                   style="width: 100%">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            Tài khoản
+                                        </th>
+                                        <th>
+                                            Mật khẩu
+                                        </th>
+                                        <th>
+                                            Họ Tên
+                                        </th>
+                                        <th>
+                                            Địa chỉ
+                                        </th>
+                                        <th>
+                                            email
+                                        </th>
+                                        <th>
+                                            Số Điện Thoại
+                                        </th>
+                                        <th>
+                                            Câu Hỏi
+                                        </th>
+                                        <th>
+                                            Câu Trả Lời
+                                        </th>
+                                        <th>
+                                            Loại thành Viên
+                                        </th>
+                                        <th>
+
+                                        </th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    @foreach (var item in Model)
+                                     {
+                                        if (item.LoaiAccount != "1")
+                                        {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TaiKhoan)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MatKhau)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HoTen)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DiaChi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SoDienThoai)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CauHoi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CauTraLoi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LoaiThanhVien.TenLoai)
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit_ThanhVien", new { id = item.MaThanhVien }, new { @class = "btn btn-success" })
+                                                @Html.ActionLink("Delete", "Delete_ThanhVien", new { id = item.MaThanhVien }, new { @class = "btn btn-success" })
+                                            </td>
+                                        </tr>
+                                        }
+                                        
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</div>
+    </div>
+</div>
+

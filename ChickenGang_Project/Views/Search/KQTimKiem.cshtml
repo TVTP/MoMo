@@ -1,0 +1,41 @@
+﻿@using ChickenGang_Project.Models;
+@model IEnumerable<SanPham>
+    @{
+        ViewBag.Title = "KQTimKiem";
+        Layout = "~/Views/Layout/DetailLayout.cshtml";
+    }
+
+    <h2 style="margin-top:180px;">Tìm kiếm > @ViewBag.Key</h2>
+    <div class="product_content" ">
+
+            @foreach (var item in Model)
+        {
+            <div class="product_item-food col-md-3">
+                <img src="~/@item.HinhAnh" alt="">
+
+                <div class="product_item-food-body">
+                    <h1>@item.TenSP</h1>
+                    <p>@item.DonGia VNĐ</p>
+                    <ul>
+                        <li>@item.Mota</li>
+                    </ul>
+                </div>
+
+                <div class="product_item-food-btn ">
+                    <div class="btn ">
+                        <a href="~/SanPham/Detail/@item.MaSP">TÙY CHỈNH</a>
+                    </div>
+
+                    <div class="btn btn--order ">
+
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = item.MaSP, @strURL = Request.Url.ToString()})">ĐẶT HÀNG</a>
+                        @*<a href="@Url.Action("KQTimKiem", "SearchController", new { @id = @ViewBag.key })"></a>*@
+                    </div>
+                </div>
+            </div>
+        }
+
+            </div>
+
+    
+

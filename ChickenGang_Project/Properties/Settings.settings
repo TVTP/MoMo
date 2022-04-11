@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ChickenGang_Project.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MAIL_REGISTER_SUBJECT" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Đăng ký</Value>
+    </Setting>
+    <Setting Name="MAIL_REGISTER_BODY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Xin chào {0}! Chúc mừng bạn đã đăng ký thành công</Value>
+    </Setting>
+    <Setting Name="MAIL_FROM" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">chickengangstore615@gmail.com</Value>
+    </Setting>
+    <Setting Name="MAIL_PASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0933644058n</Value>
+    </Setting>
+    <Setting Name="MAIL_ORDER_BODY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Xin chào {0}! Chúc mừng bạn đã đặt hàng thành công! Đơn hàng của bạn sẽ được xử lý ngay lập tức.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

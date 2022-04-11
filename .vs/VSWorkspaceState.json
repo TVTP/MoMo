@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ChickenGang_Project",
+    "\\ChickenGang_Project\\Controllers",
+    "\\ChickenGang_Project\\Models",
+    "\\ChickenGang_Project\\Views",
+    "\\ChickenGang_Project\\Views\\Admin",
+    "\\ChickenGang_Project\\Views\\Home"
+  ],
+  "SelectedNode": "\\ChickenGang_Project\\Views\\Home\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

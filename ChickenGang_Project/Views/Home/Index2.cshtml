@@ -1,0 +1,100 @@
+﻿@using ChickenGang_Project.Models;
+@*@model IEnumerable<SanPham>*@
+@model PagedList.IPagedList<ChickenGang_Project.Models.SanPham>
+@using PagedList.Mvc;
+
+@{ 
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/HomeLayout.cshtml"; 
+}
+
+@{ 
+    IEnumerable<SanPham> lst1nguoi = (IEnumerable<SanPham>)ViewBag.lst1nguoi;
+    IEnumerable<SanPham> lstnhom = (IEnumerable<SanPham>)ViewBag.lstnhom;
+    IEnumerable<SanPham> lstle = (IEnumerable<SanPham>)ViewBag.lstle;
+    IEnumerable<SanPham> lstall = (IEnumerable<SanPham>)ViewBag.lstall; 
+}
+
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstall)
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lst1nguoi)
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstnhom)
+    </div>
+
+</div>
+
+<div class="resp-tabs-container">
+    <div class="container product">
+        @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstle)
+    </div>
+
+</div>
+
+
+<div>
+    <div>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /
+        @Model.PageCount
+    </div>
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index2", new { page = page }))
+    </div>
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+<style type="text/css">
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+
+                $(this).append(' <a href="javascript:void(0);" class="read-more">đọc tiếp...</a>');
+
+                $(this).append('<span class="more-text">' + removedStr + '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+    });</script>
+<style>
+    .show-read-more .more-text {
+        display: none;
+    }
+</style>
+

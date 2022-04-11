@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chicken Gang Restaurants</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Fantastic Food Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="~/Content/fonts/fontawesome-free-6.0.0/css/all.min.css">
+    <link rel='stylesheet' type='text/css' href='~/Content/css/jquery.easy-gallery.css' /> <!-- For-gallery-CSS -->
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,hebrew,latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <!-- //online-fonts -->
+    <!-- js -->
+    <script type="text/javascript" src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+    <!-- //js -->
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="agile-top-header" style="background-color:#000; width:100%; left:0; padding: 8px 16px;">
+            <div class="logo">
+                <h1><a href="index">Ch<span>ick</span>en<span>Gang</span> </a></h1>
+            </div>
+            @Html.Partial("~/Views/Layout/_HeaderTopPartial.cshtml");
+
+        </div>
+
+    </div>
+    <!-- //header -->
+    <!-- main-content -->
+    <!-- Detail -->
+    <div id="gallery" class="portfolio">
+        <div class="container" style="margin-top:130px;">
+            <div class="agileits-title">
+                <h3>Sản phầm của chúng tôi</h3>
+                <p>Hãy đến ngay với chúng tôi khi bé bụng đang kêu.</p>
+            </div>
+            <div class="sap_tabs">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item"><span>Combo 1 Người</span></li>
+                        <li class="resp-tab-item"><span>Combo Nhóm</span></li>
+                        <li class="resp-tab-item"><span>Gà Rán - Quay</span></li>
+                        <li class="resp-tab-item"><span>Cơm - Burger - Mì Ý</span></li>
+                        <li class="resp-tab-item"><span>Thức Ăn Nhẹ - Món Thêm</span></li>
+                        @using (@Html.BeginForm("KQTimKiem", "Search"))
+                        {
+
+                            <div class="input-group" style="display: block">
+                                <input style="font-size:16px; padding:20px;" type="search" class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="sKey">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit" id="button-addonTags" style="padding:8px;font-size:16px;">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        }
+                    </ul>
+                    <div class="clearfix"> </div>
+                    @RenderBody()
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //Gallery -->
+    <!--footer-->
+    <div class="footer">
+        <div class="">
+            <div class="row">
+
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style=" display:flex;justify-content:center">
+                    <a href=""><img src="~/Content/images/logoSaleNoti.png" alt="" style="width: 350px;"></a>
+                </div>
+                <!-- Dowload App -->
+                <!-- Logo Footer -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h3>CÔNG TY TNHH TRANH CÔNG CHỐI TỘI</h3>
+                    <p>VQ4P+249, Phường Tân Phú, Quận 9, Thành phố Hồ Chí Minh</p>
+                    <p>Điện thoại: <a href="tel:+00000">(028) 38489828</a></p>
+                    <p>Email: <a href="mailto:chickengang651@gmail.com">lienhe@kfcvietnam.com.vn</a></p>
+                    <p>Mã số thuế: 0100773885</p>
+                    <p>Ngày cấp: 29/10/1998 - Nơi cấp: Cục Thuế Thành Phố Hồ Chí Minh</p>
+
+                </div>
+
+                <!-- Useful link -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h3><a href="">SẢN PHẨM</a></h3>
+                    <h3><a href="">MÓN MỚI</a> </h3>
+                    <h3><a href="">FEEDBACK</a></h3>
+                    <h3><a href="">LIÊN HỆ</a></h3>
+
+                </div>
+
+                <!-- Follow US -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h3><a href="https://www.facebook.com/Elchapogod/"><i class="fa-brands fa-facebook-f"></i>Facebook</a></h3>
+                    <h3><a href=""><i class="fa-brands fa-twitter"></i>Twitter</a></h3>
+                    <h3><a href="https://www.instagram.com/el_chaponn/"><i class="fa-brands fa-instagram"></i>Instagram</a></h3>
+                    <h3><a href=""><i class="fa-brands fa-youtube"></i>Youtube</a></h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--//footer-->
+    <!-- js files -->
+    <!-- For-Banner -->
+    <!-- For-Gallery-js -->
+    <!-- script for portfolio -->
+    <script type='text/javascript' src='~/Content/js/jquery.easy-gallery.js'></script>
+    <script type='text/javascript'>
+        //init Gallery
+        $('.portfolio').easyGallery();</script>
+    <script src="~/Content/js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });</script>
+    <!-- //script for portfolio -->
+    <!-- //For-Gallery-js -->
+    <!-- js for Counter -->
+    <script type="text/javascript" src="~/Content/js/numscroller-1.0.js"></script>
+    <!-- /js for Counter -->
+    <!-- for-Clients -->
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet">
+    <!-- requried-jsfiles-for owl -->
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo2").owlCarousel({
+                items: 1,
+                lazyLoad: false,
+                autoPlay: true,
+                navigation: false,
+                navigationText: false,
+                pagination: true,
+            });
+        });</script>
+    <!-- //requried-jsfiles-for owl -->
+    <!-- //for-Clients -->
+    <!-- Map-JavaScript -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', init);
+        function init() {
+            var mapOptions = {
+                zoom: 11,
+                center: new google.maps.LatLng(40.6700, -73.9400),
+                styles: [{ "featureType": "all", "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#000000" }, { "lightness": 40 }] }, { "featureType": "all", "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "all", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 17 }, { "weight": 1.2 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 21 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 19 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }]
+            };
+            var mapElement = document.getElementById('map');
+            var map = new google.maps.Map(mapElement, mapOptions);
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(40.6700, -73.9400),
+                map: map,
+            });
+        }</script>
+    <!-- //Map-JavaScript -->
+    <!-- For-Special-Food -->
+    <script type="text/javascript">
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 4,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });</script>
+    <script type="text/javascript" src="~/Content/js/jquery.flexisel.js"></script>
+    <!-- //For-Special-Food -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });</script>
+    <!-- start-smoth-scrolling -->
+    <!-- for-bottom-to-top smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });</script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //for-bottom-to-top smooth scrolling -->
+    <!-- //js files -->
+    @* Scroll Nav *@
+    <script>
+        const nav = document.querySelector('.top-left');
+
+        window.addEventListener('scroll', function () {
+            const offset = window.pageYOffset;
+
+            if (offset > 75)
+                nav.classList.add('scroll')
+            else
+                nav.classList.remove('scroll')
+        });</script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }</script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }</script>
+</body>
+</html>

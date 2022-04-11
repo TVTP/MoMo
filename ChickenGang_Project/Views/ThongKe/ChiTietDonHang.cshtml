@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ChickenGang_Project.Models.ChiTietDonDat>
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>ChiTietDonHang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<main class="mt-5 pt-3">
+    <div class="container-fluid">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDDH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaSP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenSP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SanPham.HinhAnh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoLuong)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DonGia)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaDDH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                    </td>
+
+                    <td>
+                        <img src="/@Html.DisplayFor(modelItem => item.SanPham.HinhAnh) " />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonGia)
+                    </td>
+
+                </tr>
+
+
+            }
+            <tr style-"font-weight:bold; text-align:right; color:red">
+                <td colspan="2"> </td>
+                <td colspan="2"> </td>
+                <td colspan="5">
+                    Tổng Tiền:
+                    @String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ
+                </td>
+            </tr>
+            <tr style="font-weight:bold; text-align:right">
+                <td colspan="6">
+                    @Html.ActionLink("Trở về Thống Kê Đơn Hàng", "Index", "ThongKe")
+                </td>
+            </tr>
+
+        </table>
+        </div>
+  </main>

@@ -1,0 +1,109 @@
+﻿@using ChickenGang_Project.Models;
+
+
+<div class="top-left">
+    <div class="top-icons">
+        <ul>
+            @Html.Action("GioHangPartial", "GioHang")
+            @if (Session["TaiKhoan"] == null)
+            {
+                <li><a href="#" onclick="document.getElementById('id01').style.display='block'">Đăng nhập </a></li>
+                <li><a href="~/NguoiDung/DangKy">Đăng ký</a></li>
+
+            }
+            else
+            {
+                ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chào @tv.HoTen <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown" style="background-color:#000; min-width:200px;">
+                        <a class="dropdown-item" href="@Url.Action("Edit", "NguoiDung", new { @id = tv.MaThanhVien })" style="font-size:20px; margin: 16px;">Thay đổi thông tin</a>
+                        <br />
+                        <a class="dropdown-item" href="#" style="font-size:20px; margin: 16px;">Đổi mật khẩu</a>
+
+                        <br />
+                        <a class="dropdown-item" href="@Url.Action("DangXuat", "NguoiDung")" style="font-size: 20px; margin: 16px;">Đăng xuất</a>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+    <div class="top-nav">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <!-- navbar-header -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <nav class="linkEffects linkHoverEffect_2">
+                    <ul>
+                        <li><a href="~/Home/Index" data-link-alt="Trang chủ" class="active"><span>Trang chủ</span></a></li>
+                        @*<li><a href="#services" data-link-alt="SERVICES" class="scroll"><span>Dịch vụ</span></a></li>*@
+                        <li><a href="#gallery" data-link-alt="Sản phẩm" class="scroll"><span>Sản phẩm</span></a></li>
+                        <li><a href="#special" data-link-alt="Món mới" class="scroll"><span>Món mới</span></a></li>
+                        <li><a href="#clients" data-link-alt="Feedback" class="scroll"><span>Feedback</span></a></li>
+                        <li><a href="#contact" data-link-alt="Liên hệ" class="scroll"><span>Liên hệ</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="clearfix"> </div>
+        </nav>
+    </div>
+    <div class="clearfix"> </div>
+    <!-- //navigation -->
+</div>
+
+<!-- Form Login -->
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">
+    </span>
+    @using (Ajax.BeginForm("DangNhap", "NguoiDung", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
+    {
+        <div class="modal-content animate">
+
+
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+
+            <div class="imgcontainer">
+                <p>Đăng nhập</p>
+
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <h3 style="font-weight:bold; color:red;" id="ThongBao"> </h3>
+
+                <h3 style="font-weight:bold; color:red; text-align:center;" id="ThongBao"></h3>
+                <button type="submit" id="btnDangNhap">Login</button>
+                @*<label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>*@
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" style="background-color: #04AA6D;"><a href="~/NguoiDung/DangKi" style="text-decoration:none; color:#fff">Đăng kí</a></button>
+
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </div>
+    }
+
+</div>
+

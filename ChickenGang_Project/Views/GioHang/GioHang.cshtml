@@ -1,0 +1,228 @@
+﻿@using ChickenGang_Project.Models;
+@model List<GioHang>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Layout/DetailLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+
+
+<h2 style="font-size: 20px; margin-top: 180px;"><a href="@Url.Action("Index", "Home")">Trang chủ</a> > <a href="@Url.Action("GioHang", "GioHang")">Giỏ Hàng</a></h2>
+<div class="container" style="min-height:500px;">
+
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="card m-b-30" style="border:none;">
+                <div class="row justify-content-center">
+                    <div class="">
+                        <div class="cart-container">
+                            <div class="cart-head">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="font-size:20px;">#</th>
+                                                <th scope="col" style="font-size:20px;">Hành động</th>
+                                                <th scope="col" style="font-size:20px;">Sản phẩm</th>
+                                                <th scope="col" style="font-size:20px;">Tên sản phầm</th>
+                                                <th scope="col" style="font-size:20px;">Số lượng</th>
+                                                <th scope="col" style="font-size:20px;">Đơn giá</th>
+                                                <th scope="col" class="text-right" style="font-size:20px;">Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @if (Model == null || Model.Count == 0)
+                                            {
+                                                <h3>Chưa có sản phẩm nào được thêm vào giỏ hàng</h3>
+                                            }
+                                            else
+                                            {
+                                                int count = 1;
+                                                foreach (var item in Model)
+                                                {
+                                        <tr>
+                                            <th scope="row" style="font-size:20px;">@count</th>
+                                            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.id }))
+                                            {
+                                               
+                                                <td>
+                                                    <a href="@Url.Action("XoaGioHang", "GioHang", new { @id = item.id, @strURL = Request.Url.ToString()})" class="text-danger" style="font-size: 20px; margin: 0 16px;"><i class="ri-delete-bin-3-line"></i></a>
+                                                    @*<a href="@Url.Action("CapnhatGiohang", "GioHang", new { @id = item.id, @strURL = Request.Url.ToString()})" class="text-success" style="font-size:20px;"><i class="fa-solid fa-arrow-rotate-right"></i></a>*@
+                                                    <input type="submit" value="Cập nhật" class="btn btn-info" />
+                                                </td>
+
+                                                <td><img src="~/@item.hinh" class="img-fluid" width="150" alt="product"></td>
+                                                <td style="font-size:20px;">@item.ten</td>
+                                                <td>
+                                                    <div class="form-group mb-0">
+                                                        <input type="number" class="form-control cart-qty" min="1" name="txtSolg" id="txtSolg" value="@item.isoluong" style="max-width:70px">
+                                                    </div>
+                                                </td>
+                                                <td style="font-size:20px;">@item.giaban.ToString("#,##") VNĐ</td>
+                                                <td class="text-right" style="font-size:20px;">@item.dThanhtien.ToString("#,##") VNĐ</td>
+
+                                            }
+
+                                        </tr>
+                                                    count++;
+                                                }
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="cart-body">
+                                <div class="row">
+                                    <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+                                        
+                                    </div>
+                                    <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                        <div class="order-total table-responsive ">
+                                            <table class="table table-borderless text-right">
+                                                <tbody style="font-size:16px; ">
+                                                    <tr
+                                                        ><td class="f-w-7 font-18">@ViewBag.soluong</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td class="f-w-7 font-18">@ViewBag.chonlai</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Tổng hóa đơn :</td>
+                                                        <td>@ViewBag.TongTien VNĐ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Shipping :</td>
+                                                        <td>0.00 VNĐ</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="f-w-7 font-18"><h4>Thanh Toán :</h4></td>
+                                                        <td class="f-w-7 font-18"><h4>@ViewBag.TongTien VNĐ</h4></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @using (@Html.BeginForm())
+                            {
+                                @*if (Session["TaiKhoan"] == null)
+                                {
+                                    <div class="form-group">
+                                        <label for="TenKH" style="font-size:16px;">Họ và Tên người nhận:</label>
+                                        <textarea class="form-control" name="tenkh" id="tenkh" rows="1" placeholder="Nhập Tên của bạn" style="font-size:16px;"></textarea>
+
+                                        <p style="color:red;" id="Tb_TenKH"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="DiaChi" style="font-size:16px;">Địa chỉ:</label>
+                                        <textarea class="form-control" name="DiaChi" id="DiaChi" rows="2" placeholder="Nhập địa chỉ nhận hàng" style="font-size:16px;"></textarea>
+                                        <p style="color:red;" id="Tb_DiaChi"></p>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Email" style="font-size:16px;">Email:</label>
+                                        <textarea class="form-control" name="Email" id="Email" rows="1" placeholder="Nhập Email của bạn" style="font-size:16px;"></textarea>
+                                        <p style="color:red;" id="Tb_Email"></p>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="SoDienThoai" style="font-size:16px;">Số Điện Thoại:</label>
+                                        <textarea class="form-control" name="SoDienThoai" id="SoDienThoai" rows="1" placeholder="Nhập SĐT người nhận" style="font-size:16px;"></textarea>
+                                        <p style="color:red;" id="Tb_SoDienThoai"></p>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="d-flex">
+                                            <td>Ngày đặt: </td>
+                                            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+                                            <td>Ngày giao: </td>
+                                            <td style="font-weight:bold">
+                                                <input type="date" name="NgayGiao" />
+                                            </td>
+                                        </div>
+
+                                    </div>
+
+                                }*@
+
+
+
+                        <div class="cart-footer text-right">
+                            <a href="~/SanPham/D_SanPham" class="btn btn-info my-1" style="font-size:16px;">Mua Tiếp</a>
+                            <a href="~/GioHang/DatHang" class="btn btn-success my-1" style="font-size:16px;">Xác nhận thanh toán</a>
+
+                        </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End col -->
+</div>
+<!-- End row -->
+
+<script>
+    $("#btnDatHang").click(function () {
+        var loi = 0;
+        if ($("#TenKH").val() == "") {
+            $("#Tb_TenKH").text("Vui lòng điền thông tin yêu cầu!!");
+            loi++;
+        }
+        else {
+
+            $("#Tb_TenKH").text("");
+
+        }
+
+        if ($("#DiaChi").val() == "") {
+            $("#Tb_DiaChi").text("Vui lòng điền thông tin yêu cầu!!");
+            loi++;
+        }
+        else {
+
+            $("#Tb_DiaChi").text("");
+
+        }
+
+        if ($("#Email").val() == "") {
+            $("#Tb_Email").text("Vui lòng điền thông tin yêu cầu!!");
+            loi++;
+        }
+        else {
+
+            $("#Tb_Email").text("");
+
+        }
+
+        if ($("#SoDienThoai").val() == "") {
+            $("#Tb_SoDienThoai").text("Vui lòng điền thông tin yêu cầu!!");
+            loi++;
+        }
+        else {
+
+            $("#Tb_TenKH").text("");
+
+        }
+
+        if (loi != 0) {
+            return false;
+        }
+    });
+</script>

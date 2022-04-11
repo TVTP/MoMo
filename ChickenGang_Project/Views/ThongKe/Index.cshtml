@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ChickenGang_Project.Models.DonDatHang>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml"; }
+
+
+
+
+<div class="mt-4">
+    <h2 class="m-3">
+        Quản lý > Thống kê
+    </h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card bg-primary text-white h-100">
+                    <div class="card-body py-5">
+                        Tổng thành viên
+                        <h3>@ViewBag.TongThanhVien</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-warning text-dark h-100">
+                    <div class="card-body py-5">
+                        Tổng doanh thu
+                        @{ decimal TongDoanhThu = decimal.Parse(ViewBag.TongDoanhThu.ToString());}
+                        <h3>@TongDoanhThu.ToString("0,000") VNĐ</h3>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body py-5">
+                        Tổng đơn hàng
+                        <h3>@ViewBag.TongDonHang</h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body py-5">
+                        Online
+                        <h3>@ViewBag.SoNguoiDangOnline</h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <div class="card bg-danger text-white h-100">
+                    <div class="card-body py-5">
+                        Visit
+                        <h3>@ViewBag.SoNguoiTruyCap</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <span><i class="bi bi-table me-2"></i></span> Data Table
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example"
+                                   class="table table-striped data-table"
+                                   style="width: 100%">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            ngày đặt
+                                        </th>
+                                        <th>
+                                            ngày giao
+                                        </th>
+                                        <th>
+                                            tên khách hàng
+                                        </th>
+                                        <th>
+                                            địa chỉ giao hàng
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    @foreach (var item in Model)
+                                    {
+
+                        <tr>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayDat)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayGiao)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KhachHang.TenKH)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiaChiGiaoHang)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Chi tiết", "ChiTietDonHang", new { id = item.MaDDH }, new { @class = "btn btn-success" })
+
+                            </td>
+                        </tr>
+}
+                                    <tr style-"font-weight:bold; text-align:right; color:red">
+                                        <td colspan="2"> </td>
+                                        <td colspan="2"> </td>
+                                        <td colspan="5">
+                                            Tổng Tiền:
+                                            @String.Format("{0:0,0}", @ViewBag.TongDoanhThu) VNĐ
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
